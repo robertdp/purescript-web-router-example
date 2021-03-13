@@ -1,7 +1,7 @@
 module App.Router where
 
 import Prelude hiding ((/))
-import App.Routing (Route(..), parseRoute, printRoute)
+import App.Routes (Route(..), parseRoute, printRoute)
 import Data.Newtype (class Newtype)
 import Data.Tuple.Nested ((/\))
 import Effect (Effect)

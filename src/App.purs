@@ -2,7 +2,7 @@ module App where
 
 import Prelude hiding ((/))
 import App.Router as AppRouter
-import App.Routing (Route(..))
+import App.Routes (Route(..))
 import Effect (Effect)
 import React.Basic.DOM as R
 import React.Basic.Events (handler_)

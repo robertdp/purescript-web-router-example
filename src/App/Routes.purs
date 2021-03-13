@@ -1,4 +1,4 @@
-module App.Routing where
+module App.Routes where
 
 import Prelude hiding ((/))
 import Data.Either (Either)

@@ -56,7 +56,7 @@ routerContext = unsafePerformEffect (React.createContext { route: Home, navigate
 
 makeRouter :: Effect (Array JSX -> JSX)
 makeRouter = do
-  subscriberRef <- Ref.new \_ -> pure unit
+  subscriberRef <- Ref.new mempty
   router <-
     PushState.makeRouter
       (parse routes)

@@ -1,0 +1,28 @@
+{
+  "name": "purescript-web-router-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "spago build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertdp/purescript-web-router-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertdp/purescript-web-router-example/issues"
+  },
+  "homepage": "https://github.com/robertdp/purescript-web-router-example#readme",
+  "devDependencies": {
+    "purescript": "^0.14.0",
+    "purescript-psa": "^0.8.2",
+    "purty": "^7.0.0",
+    "spago": "^0.19.1"
+  }
+}

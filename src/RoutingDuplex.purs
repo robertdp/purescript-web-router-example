@@ -64,7 +64,7 @@ makeRouter = do
       (\_ _ -> Router.continue)
       ( case _ of
           Transitioning _ _ -> pure unit
-          Resolved _ route -> join (flap (Ref.read subscriberRef) route)
+          Resolved _ route -> join (Ref.read subscriberRef <@> route)
       )
   React.component "Router" \children -> React.do
     currentRoute /\ setCurrentRoute <- React.useState' Home

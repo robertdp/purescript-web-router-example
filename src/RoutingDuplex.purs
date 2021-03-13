@@ -13,7 +13,7 @@ import React.Basic.DOM as ReactDOM
 import React.Basic.Events (handler_)
 import React.Basic.Hooks (JSX)
 import React.Basic.Hooks as React
-import Routing.Duplex (RouteDuplex', default, end, parse, print, root)
+import Routing.Duplex (RouteDuplex', default, parse, print, root)
 import Routing.Duplex.Generic (noArgs, sum)
 import Routing.Duplex.Generic.Syntax ((/))
 import Web.DOM.NonElementParentNode (getElementById)
@@ -36,9 +36,9 @@ routes =
   default NotFound
     $ root
     $ sum
-        { "Home": end noArgs
-        , "About": "about" / end noArgs
-        , "NotFound": "404" / end noArgs
+        { "Home": noArgs
+        , "About": "about" / noArgs
+        , "NotFound": "404" / noArgs
         }
 
 main :: Effect Unit

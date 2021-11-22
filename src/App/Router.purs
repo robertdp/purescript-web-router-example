@@ -11,7 +11,7 @@ import React.Basic.Hooks (JSX, UseContext, Hook)
 import React.Basic.Hooks as React
 import Web.Router as Router
 import Web.Router.Driver.PushState as PushState
-import Web.Router.Types (Event(..))
+import Web.Router.Types (RouterState(..))
 
 type Router
   = { route :: Route, navigate :: Route -> Effect Unit, redirect :: Route -> Effect Unit }

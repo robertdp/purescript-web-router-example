@@ -6,9 +6,19 @@ You can edit this file as you like.
 , dependencies =
   [ "console"
   , "effect"
+  , "either"
+  , "exceptions"
+  , "maybe"
+  , "newtype"
+  , "prelude"
+  , "react-basic"
   , "react-basic-dom"
   , "react-basic-hooks"
+  , "refs"
   , "routing-duplex"
+  , "tuples"
+  , "web-dom"
+  , "web-html"
   , "web-router"
   ]
 , packages = ./packages.dhall

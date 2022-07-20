@@ -9,8 +9,8 @@ import React.Basic.Events (handler_)
 import React.Basic.Hooks (JSX)
 import React.Basic.Hooks as React
 
-makeApp :: Effect (Unit -> JSX)
-makeApp = do
+mkApp :: Effect (Unit -> JSX)
+mkApp = do
   React.component "App" \_ -> React.do
     router <- AppRouter.useRouter
     pure

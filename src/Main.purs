@@ -19,5 +19,5 @@ main = do
     Nothing -> Exception.throw "App container element not found."
     Just c -> do
       router <- AppRouter.mkRouter
-      app <- App.makeApp
+      app <- App.mkApp
       ReactDOM.render (router [ app unit ]) c

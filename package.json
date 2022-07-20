@@ -23,7 +23,6 @@
   "homepage": "https://github.com/robertdp/purescript-web-router-example#readme",
   "devDependencies": {
     "parcel": "^2.6.2",
-    "process": "^0.11.10",
     "purescript": "^0.15.4",
     "purescript-psa": "^0.8.2",
     "purty": "^7.0.0",

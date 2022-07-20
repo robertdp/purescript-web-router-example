@@ -1,6 +1,6 @@
-var Main = require('./output/Main');
+var Main = require('../output/Main');
 
-function main () {
+function main() {
   // See for configuration options: https://github.com/purescript/spago#get-started-from-scratch-with-parcel-frontend-projects
   Main.main();
 }

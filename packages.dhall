@@ -105,21 +105,25 @@ in  upstream
 -------------------------------
 -}
 let upstream =
-      https://github.com/purescript/package-sets/releases/download/psc-0.14.5-20211116/packages.dhall sha256:7ba810597a275e43c83411d2ab0d4b3c54d0b551436f4b1632e9ff3eb62e327a
+      https://github.com/purescript/package-sets/releases/download/psc-0.15.4-20220718/packages.dhall
+        sha256:a6d66723b6109f1e3eaf6575910f1c51aa545965ce313024ba329360e2f009ac
 
 in  upstream
   with web-router =
-      { dependencies =
-          [ "aff"
-          , "effect"
-          , "freet"
-          , "indexed-monad"
-          , "prelude"
-          , "profunctor-lenses"
-          , "routing"
-          ]
-      , repo =
-          "https://github.com/robertdp/purescript-web-router.git"
-      , version =
-          "v0.3.0"
-      }
+    { dependencies =
+      [ "aff"
+      , "effect"
+      , "foldable-traversable"
+      , "foreign"
+      , "freet"
+      , "indexed-monad"
+      , "maybe"
+      , "prelude"
+      , "profunctor-lenses"
+      , "refs"
+      , "routing"
+      , "type-equality"
+      ]
+    , repo = "https://github.com/robertdp/purescript-web-router.git"
+    , version = "0.15-upgrade"
+    }

@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "build": "spago build"
+    "build": "spago build",
+    "postinstall": "spago install",
+    "serve": "parcel ./entry/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,13 +22,14 @@
   },
   "homepage": "https://github.com/robertdp/purescript-web-router-example#readme",
   "devDependencies": {
-    "purescript": "^0.14.5",
+    "parcel": "^2.6.2",
+    "purescript": "^0.15.4",
     "purescript-psa": "^0.8.2",
     "purty": "^7.0.0",
-    "spago": "^0.20.3"
+    "spago": "^0.20.9"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

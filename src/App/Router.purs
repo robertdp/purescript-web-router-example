@@ -11,7 +11,6 @@ import React.Basic.Hooks (JSX, UseContext, Hook)
 import React.Basic.Hooks as React
 import Web.Router as Router
 import Web.Router.Driver.PushState as PushState
-import Web.Router.Types (Event(..))
 
 type Router
   = { route :: Route, navigate :: Route -> Effect Unit, redirect :: Route -> Effect Unit }
@@ -30,16 +29,16 @@ useRouter =
 routerContext :: React.ReactContext Router
 routerContext = unsafePerformEffect (React.createContext { route: Home, navigate: mempty, redirect: mempty })
 
-makeRouter :: Effect (Array JSX -> JSX)
-makeRouter = do
+mkRouter :: Effect (Array JSX -> JSX)
+mkRouter = do
   subscriberRef <- Ref.new mempty
-  driver <- PushState.makeDriver parseRoute printRoute
+  driver <- PushState.mkDriver parseRoute printRoute
   router <-
-    Router.makeRouter
+    Router.mkRouter
       (\_ _ -> Router.continue)
       ( case _ of
-          Transitioning _ _ -> pure unit
-          Resolved _ route -> join (Ref.read subscriberRef <@> route)
+          Router.Routing _ _ -> pure unit
+          Router.Resolved _ route -> join (Ref.read subscriberRef <@> route)
       )
       driver
   React.component "Router" \children -> React.do

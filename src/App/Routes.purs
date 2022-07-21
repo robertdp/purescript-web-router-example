@@ -11,7 +11,7 @@ import Prelude hiding ((/))
 
 import Data.Either (Either)
 import Data.Generic.Rep (class Generic)
-import Routing.Duplex (RouteDuplex, RouteDuplex', default, end, int, parse, print, root, segment)
+import Routing.Duplex (RouteDuplex', default, end, int, parse, print, root, segment)
 import Routing.Duplex.Generic (noArgs, sum)
 import Routing.Duplex.Generic.Syntax ((/))
 import Routing.Duplex.Parser (RouteError)
@@ -31,9 +31,9 @@ derive instance Generic Route _
 
 derive instance Generic Page _
 
-type ProductId = String
+type ProductId = Int
 
-productId :: RouteDuplex Int Int
+productId :: RouteDuplex' Int
 productId = int segment
 
 routes :: RouteDuplex' Route
@@ -49,7 +49,7 @@ pages =
   root $ end $ sum
     { "Home": noArgs
     , "ProductList": "products" / noArgs
-    , "ProductView": "products" / segment
+    , "ProductView": "products" / productId
     , "About": "about" / noArgs
     , "ContactUs": "contact-us" / noArgs
     }

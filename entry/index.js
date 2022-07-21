@@ -1,8 +1,6 @@
-var Main = require('../output/Main');
-
 function main() {
   // See for configuration options: https://github.com/purescript/spago#get-started-from-scratch-with-parcel-frontend-projects
-  Main.main();
+  require('../output/Main').main();
 }
 
 // HMR setup. For more info see: https://parceljs.org/hmr.html

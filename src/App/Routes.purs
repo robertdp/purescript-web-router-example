@@ -1,33 +1,61 @@
-module App.Routes where
+module App.Routes
+  ( Page(..)
+  , ProductId
+  , Route(..)
+  , parseRoute
+  , printRoute
+  , productId
+  ) where
 
 import Prelude hiding ((/))
+
 import Data.Either (Either)
 import Data.Generic.Rep (class Generic)
-import Routing.Duplex (RouteDuplex')
-import Routing.Duplex as RD
+import Routing.Duplex (RouteDuplex, RouteDuplex', default, end, int, parse, print, root, segment)
 import Routing.Duplex.Generic (noArgs, sum)
 import Routing.Duplex.Generic.Syntax ((/))
 import Routing.Duplex.Parser (RouteError)
 
 data Route
-  = Home
-  | About
+  = Page Page
   | NotFound
 
-derive instance genericRoute :: Generic Route _
+data Page
+  = Home
+  | ProductList
+  | ProductView ProductId
+  | About
+  | ContactUs
+
+derive instance Generic Route _
+
+derive instance Generic Page _
+
+type ProductId = String
+
+productId :: RouteDuplex Int Int
+productId = int segment
 
 routes :: RouteDuplex' Route
 routes =
-  RD.default NotFound
-    $ RD.root
-    $ sum
-        { "Home": noArgs
-        , "About": "about" / noArgs
-        , "NotFound": "404" / noArgs
-        }
+  default NotFound $
+    sum
+      { "Page": pages
+      , "NotFound": "404" / noArgs
+      }
+
+pages :: RouteDuplex' Page
+pages =
+  root $ end $ sum
+    { "Home": noArgs
+    , "ProductList": "products" / noArgs
+    , "ProductView": "products" / segment
+    , "About": "about" / noArgs
+    , "ContactUs": "contact-us" / noArgs
+    }
 
 parseRoute :: String -> Either RouteError Route
-parseRoute = RD.parse routes
+parseRoute = parse routes
 
-printRoute :: Route -> String
-printRoute = RD.print routes
+printRoute :: Page -> String
+printRoute = print pages
